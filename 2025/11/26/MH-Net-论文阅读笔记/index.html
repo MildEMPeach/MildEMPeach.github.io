@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://example.com/img/MH-NET/RETCW_experiment_5.png">
 <meta property="og:image" content="http://example.com/img/MH-NET/RETCW_experiment_6.png">
 <meta property="article:published_time" content="2025-11-26T03:39:08.000Z">
-<meta property="article:modified_time" content="2025-11-26T07:52:56.446Z">
+<meta property="article:modified_time" content="2025-11-26T08:54:01.881Z">
 <meta property="article:author" content="mildempeach">
 <meta property="article:tag" content="加密流量分析">
 <meta property="article:tag" content="图神经网络">
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.1k words
+          5.5k words
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          43 mins
+          46 mins
         
       </span>
     
@@ -304,7 +304,7 @@
 <ol>
 <li>将比特序列按照不同比特数，如 $N1$ 、 $N2$ ，作为<strong>流量单元</strong>，得到两条流量单元序列 $\vec{U_{N1}}$ 和 $\vec{U_{N2}}$。</li>
 <li>使用<code>PMI</code>方法量化每一条流量单元序列中，<strong>不同流量单元之间的关联性</strong>大小。</li>
-<li>根据第二步的计算结果，将<strong>关联性高的流量单元对</strong>对应的流量单元结点在图中用边相连。从而得到两张由不同流量单元为结点组成的<strong>多视图流量图</strong> $g_{N1}$ 和 $g_{N2}$ 。（架构图中未画出这两张图）</li>
+<li>根据第二步的计算结果，将<strong>关联性高的流量单元对</strong>对应的流量单元结点在图中用边相连。从而得到两张由不同流量单元为结点组成的<strong>多视图流量图</strong> $\mathcal{G} _{N1}$ 和 $\mathcal{G} _{N2}$ 。（架构图中未画出这两张图）</li>
 </ol>
 <ul>
 <li><strong>PMI方法</strong></li>
@@ -318,7 +318,7 @@
 <h3 id="阶段二：基于多视角流量图构建其异构图"><a href="#阶段二：基于多视角流量图构建其异构图" class="headerlink" title="阶段二：基于多视角流量图构建其异构图"></a>阶段二：基于多视角流量图构建其异构图</h3><ul>
 <li><strong>目的</strong></li>
 </ul>
-<p>在同一个数据包、不同流量单元构成的两张多视角图 $g_{N1}$ 和 $g_{N2}$ 的基础上，对<strong>每一张多视角图构建其异构图</strong>。这样做是为了能够利用数据包不同位置流量单元之间的联系。</p>
+<p>在同一个数据包、不同流量单元构成的两张多视角图 $\mathcal{G} _{N1}$ 和 $\mathcal{G} _{N2}$ 的基础上，对<strong>每一张多视角图构建其异构图</strong>。这样做是为了能够利用数据包不同位置流量单元之间的联系。</p>
 <ul>
 <li><strong>做法</strong></li>
 </ul>
@@ -328,20 +328,20 @@
 <li><code>p-p</code>：两个都位于载荷部分的流量单元。</li>
 <li><code>h-p</code>：一个位于头部、一个位于载荷部分的流量单元。</li>
 </ol>
-<p>仍然采用阶段一中的<code>PMI</code>方法，<strong>扫描三种序列</strong>（头部流量单元序列、载荷部分流量单元序列、完整流量单元序列），从而在图中加入对应类型的边，最终得到图 $g_{N1}^{H}$ 和图 $g_{N2}^{H}$ 。</p>
+<p>仍然采用阶段一中的<code>PMI</code>方法，<strong>扫描三种序列</strong>（头部流量单元序列、载荷部分流量单元序列、完整流量单元序列），从而在图中加入对应类型的边，最终得到图 $\mathcal{G} _{N1}^{H}$ 和图 $\mathcal{G} _{N2}^{H}$ 。</p>
 <blockquote>
 <p>这里的完整流量单元序列，实际上就是阶段一的步骤；所以在实际操作中，阶段一和阶段二可以合成一步，简单来说就是根据PMI方法扫描三条序列，构建图。</p>
 </blockquote>
 <h3 id="阶段三：异构图流量编码器"><a href="#阶段三：异构图流量编码器" class="headerlink" title="阶段三：异构图流量编码器"></a>阶段三：异构图流量编码器</h3><ul>
 <li><strong>目的</strong></li>
 </ul>
-<p>将得到的图 $g_{N1}^{H}$ 和图 $g_{N2}^{H}$ 喂给 <strong>异构图神经网络（HGNN）</strong> ，后者对这些图进行编码，获得可区分的图表示（一个Embedding）。</p>
+<p>将得到的图 $\mathcal{G} _{N1}^{H}$ 和图 $\mathcal{G} _{N2}^{H}$ 喂给 <strong>异构图神经网络（HGNN）</strong> ，后者对这些图进行编码，获得可区分的图表示（一个Embedding）。</p>
 <ul>
 <li><strong>异构图神经网络（HGNN）</strong></li>
 </ul>
 <p>异构图神经网络（HGNN）以<code>GraphSAGE</code>作为基本骨干，不同类型的边权重彼此独立不共享。</p>
 <p>每一层的前向传播分为两个步骤：<strong>采样</strong>、<strong>聚合</strong>，数学表示如下：</p>
-<p>在神经网络的第 $l$ 层，在图 $g_{N}^{H}$ 中的某个节点 <code>v</code> 进行如下计算：</p>
+<p>在神经网络的第 $l$ 层，在图 $\mathcal{G} _{N}^{H}$ 中的某个节点 <code>v</code> 进行如下计算：</p>
 <ol>
 <li>邻居节点采样：从邻居节点收集消息，生成消息向量。</li>
 </ol>
@@ -357,10 +357,10 @@ h_v^{(l)} &#x3D;  AGG^{(l)}(h_v^{(l - 1)}, m_v^{l};\theta_{h,h}^{l;a},\theta_{p,
 $$</p>
 <p>在多层采样-聚合后，最终得到图中的每个节点对应的嵌入向量 $h$，然后逐节点做平均，作为图对应的嵌入向量 $p_N$ ，即<strong>包级别特征表示</strong>。</p>
 <p>$$
-p_{N1} &#x3D; HGNN(g_{N1}^{H})
+p_{N1} &#x3D; HGNN(\mathcal{G} _{N1}^{\mathcal{H}})
 $$</p>
 <p>$$
-p_{N2} &#x3D; HGNN(g_{N2}^{H})
+p_{N2} &#x3D; HGNN(\mathcal{G} _{N2}^{\mathcal{H}})
 $$</p>
 <p>将一个流中的多个<strong>包级别特征表示</strong>输入到 <strong>循环神经网络（RNN）</strong> 中，可以得到相应的对于同一个流的两种<strong>流级特征表示</strong>，其中 $L$ 为流中的包数目。</p>
 <p>$$
@@ -382,36 +382,42 @@ $$</p>
 p &#x3D; CONCAT(p_{N1}, p_{N2})
 $$</p>
 <p>$$
-L_{PCLS} &#x3D; CE(MLP(p), y^p)
+\mathcal{L}_{PCLS} &#x3D; CE(MLP(p), y^p)
 $$</p>
 <p><strong>流级分类损失：</strong></p>
 <p>$$
 f &#x3D; CONCAT(f_{N1}, f_{N2})
 $$</p>
 <p>$$
-L_{FCLS} &#x3D; CE(MLP(f), y^f)
+\mathcal{L}_{FCLS} &#x3D; CE(MLP(f), y^f)
 $$</p>
 <p><strong>2. 对比学习损失计算</strong></p>
 <p><strong>核心损失函数：</strong></p>
-<p>$$L_{SCL}(z) &#x3D; \sum_{i \in I}\frac{-1}{| M(i)|} \sum_{m \in M(i)} log \frac{exp(z_i \cdot z_m &#x2F; \tau)}{ \sum_{k \in K(i)}exp(z_i \cdot z_k &#x2F; \tau)}$$</p>
+<p>$$
+\mathcal{L}_{SCL}(z) &#x3D; \sum _{i \in I}\frac{-1}{| M(i)|} \sum _{m \in M(i)} log \frac{exp(z_i \cdot z_m &#x2F; \tau)}{ \sum _{k \in K(i)}exp(z_i \cdot z_k &#x2F; \tau)}
+$$</p>
 <p>这里的 $z$ 指的是来自同一源的两组数据增强的样本组成的嵌入向量集合。</p>
 <p>其核心目的在于计算损失后，调节模型的参数，使得正样本之间距离更近，负样本之间距离更远。</p>
 <p><strong>包级对比学习损失：</strong></p>
 <p>为计算包级别对比学习的损失，需要首先对输入的图进行<strong>图增强</strong>，将增强后的图也经过<code>HGNN</code>，从而计算对比学习损失。</p>
 <p>图增强采用两种方式：1. 随机游走：随机选择一个起始节点出发，生成一个节点序列。提取序列中所有不重复的节点，然后从原图中抽取出由这些节点构成的子图。2. 特征翻转：保持图的结构（节点和边）不变，但是将节点对应的初始字节ID进行了顺序上的翻转。</p>
-<p>对于每一张异构图 $g_{N}^{H}$ 生成两张增强图 $g_{N, s}^{H}$ 和 $g_{N, f}^{H}$ 。</p>
+<p>对于每一张异构图 $\mathcal{G} _{N}^{\mathcal{H}}$ 生成两张增强图 $\mathcal{G} _{N, s}^{\mathcal{H}}$ 和 $\mathcal{G} _{N, f}^{\mathcal{H}}$ 。</p>
 <p>包级对比学习损失计算公式为：</p>
 <p>$$
-L_{PCL} &#x3D; \sum_i^{{1,2}}(L_{SCL}(p_{Ni}, HGNN(g^H_{Ni, s})) + L_{SCL}(p_{Ni}, HGNN(g^H_{Ni, f})))
+\mathcal{L} _{PCL} &#x3D; \sum _i^{{1,2}}(\mathcal{L} _{SCL}(p _{Ni}, HGNN(g^{\mathcal{H}} _{Ni, s})) + \mathcal{L} _{SCL}(p _{Ni}, HGNN(g^{\mathcal{H}} _{Ni, f})))
 $$</p>
 <p>总结：一次处理若干个包的嵌入向量（embedding），每个包都包含两个嵌入向量（一个来自原本的图、一个来自增强图）。把所有这些embedding视为总集合，其中每个包的label即为一个类别（增强图的label与原label相同），进行损失计算。</p>
 <p><strong>流级对比学习损失：</strong></p>
 <p>为计算流级别对比学习的损失，需要获得<strong>增强流</strong>作为对照。实现的方式是在进入RNN时，丢弃部分包，得到一条增强流的特征。</p>
-<p>$$L_{FCL} &#x3D; \sum_i^{1,2} L_{SCL}(f_{Ni},RNN(p_{Ni}^1 \odot \rho_1,...,p_{Ni}^{Li} \odot \rho_{Li}))$$</p>
+<p>$$
+\mathcal{L} _{FCL} &#x3D; \sum _i^{1,2} \mathcal{L} _{SCL}(f _{Ni},RNN(p _{Ni}^1 \odot \rho _1,...,p _{Ni}^{Li} \odot \rho _{Li}))
+$$</p>
 <p>总结：一次处理若干条流的嵌入向量，每条流对应两个嵌入向量（原流、增强流），根据流的label划分为不同类型的样本。对于某个具体的嵌入向量来说，与自身对应的流的label相同的嵌入向量为正样本，否则为负样本。</p>
 <p><strong>3. 总体损失</strong></p>
 <p>根据分类损失和对比损失，可以计算出整个模型的整体损失：</p>
-<p>$$L &#x3D; L_{FCLS} + L_{PCLS} + \alpha L_{PCL} + \beta L_{FCL}$$</p>
+<p>$$
+\mathcal{L} &#x3D; \mathcal{L} _{FCLS} + \mathcal{L} _{PCLS} + \alpha \mathcal{L} _{PCL} + \beta \mathcal{L} _{FCL}
+$$</p>
 <p>其中 $\alpha, \beta \in [0, 1]$ 是用于控制包级别和流级别对比任务的贡献度的参数。</p>
 <h2 id="实验分析"><a href="#实验分析" class="headerlink" title="实验分析"></a>实验分析</h2><h3 id="实验设置"><a href="#实验设置" class="headerlink" title="实验设置"></a>实验设置</h3><ul>
 <li><strong>数据集</strong></li>
