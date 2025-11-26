@@ -26,21 +26,21 @@
 <meta property="og:site_name">
 <meta property="og:description" content="MH-Net: 论文阅读笔记基本信息论文原文：Revolutionizing Encrypted Traffic Classification with MH-Net: A Multi-View Heterogeneous Graph Model标题翻译：MH-Net：一种用于加密流量分类的多视角异构图模型所属会议&#x2F;期刊：AAAI 2025一句话总结：一种利用多视角异构流量图进行加密流量">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_design_1.png">
-<meta property="og:image" content="http://example.com/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_design_2.png">
-<meta property="og:image" content="http://example.com/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_experiment_1.png">
-<meta property="og:image" content="http://example.com/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_experiment_2.png">
-<meta property="og:image" content="http://example.com/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_experiment_3.png">
-<meta property="og:image" content="http://example.com/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_experiment_4.png">
-<meta property="og:image" content="http://example.com/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_experiment_5.png">
-<meta property="og:image" content="http://example.com/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_experiment_6.png">
+<meta property="og:image" content="http://example.com/img/MH-NET/RETCW_design_1.png">
+<meta property="og:image" content="http://example.com/img/MH-NET/RETCW_design_2.png">
+<meta property="og:image" content="http://example.com/img/MH-NET/RETCW_experiment_1.png">
+<meta property="og:image" content="http://example.com/img/MH-NET/RETCW_experiment_2.png">
+<meta property="og:image" content="http://example.com/img/MH-NET/RETCW_experiment_3.png">
+<meta property="og:image" content="http://example.com/img/MH-NET/RETCW_experiment_4.png">
+<meta property="og:image" content="http://example.com/img/MH-NET/RETCW_experiment_5.png">
+<meta property="og:image" content="http://example.com/img/MH-NET/RETCW_experiment_6.png">
 <meta property="article:published_time" content="2025-11-26T03:39:08.000Z">
-<meta property="article:modified_time" content="2025-11-26T05:07:31.728Z">
+<meta property="article:modified_time" content="2025-11-26T05:27:54.617Z">
 <meta property="article:author" content="mildempeach">
 <meta property="article:tag" content="加密流量分析">
 <meta property="article:tag" content="图神经网络">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_design_1.png">
+<meta name="twitter:image" content="http://example.com/img/MH-NET/RETCW_design_1.png">
   
   
   
@@ -290,7 +290,7 @@
 <li>通过引入基于位置联系的<strong>三种类型流量单元对（头-头、头-载荷、载荷-载荷）</strong>，构建<strong>异构</strong>图，并采用异构图神经网络提取特征。</li>
 <li>进一步地，采用<strong>多任务对比学习</strong>增强流量单元表示的鲁棒性。</li>
 </ol>
-<h2 id="方法设计"><a href="#方法设计" class="headerlink" title="方法设计"></a>方法设计</h2><p><img src="/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_design_1.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="方法设计"><a href="#方法设计" class="headerlink" title="方法设计"></a>方法设计</h2><p><img src="/img/MH-NET/RETCW_design_1.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="阶段一：构建多视角流量图"><a href="#阶段一：构建多视角流量图" class="headerlink" title="阶段一：构建多视角流量图"></a>阶段一：构建多视角流量图</h3><ul>
 <li><strong>目的</strong></li>
 </ul>
@@ -359,7 +359,7 @@
 </ul>
 <p>在MH-Net模型进行训练时，其采用的是多任务联合训练的方式，即同时训练包级分类和流级分类，用于进一步优化分类结果。同时，在包级和流级特征生成过程中，采用对比学习。因此，整个系统的损失函数包括四大部分：包级分类损失、流级分类损失、包级对比学习损失、流级对比学习损失。</p>
 <p>根据对比学习的损失的反向传播，就会优化模型的能力，从而使得相同label的包&#x2F;流输出得到的嵌入向量更接近。</p>
-<p><img src="/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_design_2.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/MH-NET/RETCW_design_2.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>1. 分类损失计算</strong></p>
 <p>在得到包&#x2F;流级特征后，将不同视角的特征值通过<strong>CONCAT</strong>连接，通过MLP(作者未开源的一个多层流量分类器)预测流量种类，并将其与实际标签做比对，计算得到分类器的损失函数。</p>
 <p><strong>包级分类损失：</strong></p>
@@ -438,7 +438,7 @@
 <blockquote>
 <p>宏平均值指的是对每一类别分别计算精确率和召回率，然后取算术平均，相当于不管每一类别的样本数量差异，对于最终的宏平均值的贡献度是一样的。适合类别数量相近但样本数差异大的场景，用来强调少数类别表现。</p>
 </blockquote>
-<h3 id="流级别分类任务实验"><a href="#流级别分类任务实验" class="headerlink" title="流级别分类任务实验"></a>流级别分类任务实验</h3><p><img src="/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_experiment_1.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="流级别分类任务实验"><a href="#流级别分类任务实验" class="headerlink" title="流级别分类任务实验"></a>流级别分类任务实验</h3><p><img src="/img/MH-NET/RETCW_experiment_1.png" srcset="/img/loading.gif" lazyload></p>
 <ol>
 <li><p>在五个数据集上的平均表现，MH-Net排名首位，随后是TFE-GNN（作者的另一篇论文）和YaTC；</p>
 </li>
@@ -449,20 +449,20 @@
 <li><p>在ISCX-nonVPN数据集上，ET-BERT模型的结果十分可观，这是由于其在大规模数据集上利用了大量的参数和预训练，计算负载巨大。</p>
 </li>
 </ol>
-<h3 id="包级别分类任务实验"><a href="#包级别分类任务实验" class="headerlink" title="包级别分类任务实验"></a>包级别分类任务实验</h3><p><img src="/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_experiment_2.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="包级别分类任务实验"><a href="#包级别分类任务实验" class="headerlink" title="包级别分类任务实验"></a>包级别分类任务实验</h3><p><img src="/img/MH-NET/RETCW_experiment_2.png" srcset="/img/loading.gif" lazyload></p>
 <ol>
 <li><p>在五个数据集上的平均表现，MH-Net仍然排名首位，随后是EBSNN-LSTM和EBSNN-GRU。</p>
 </li>
 <li><p>EBSNN在很多数据集上的表现优于MH-Net，但整体仍然和MH-Net有较大差距，说明其能力并不稳定。</p>
 </li>
 </ol>
-<h3 id="消融实验"><a href="#消融实验" class="headerlink" title="消融实验"></a>消融实验</h3><p><img src="/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_experiment_3.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="消融实验"><a href="#消融实验" class="headerlink" title="消融实验"></a>消融实验</h3><p><img src="/img/MH-NET/RETCW_experiment_3.png" srcset="/img/loading.gif" lazyload></p>
 <p>从消融实验可以看出，8-bit的流量单元对于模型分辨流量的贡献度最高，且使用异构图（Hetero.）获取不同位置流量单元间关系的手段是有效的。</p>
-<h3 id="参数敏感性分析"><a href="#参数敏感性分析" class="headerlink" title="参数敏感性分析"></a>参数敏感性分析</h3><p><img src="/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_experiment_4.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="参数敏感性分析"><a href="#参数敏感性分析" class="headerlink" title="参数敏感性分析"></a>参数敏感性分析</h3><p><img src="/img/MH-NET/RETCW_experiment_4.png" srcset="/img/loading.gif" lazyload></p>
 <p>这里的 $\alpha$ 和 $\beta$ 是用来调节整体损失函数中包特征和流特征的对比学习损失占比，可以看出分别取到1.0和0.5的时候，整体效果最好，这也是实验的默认参数设置。</p>
-<h3 id="流量单元参数选取"><a href="#流量单元参数选取" class="headerlink" title="流量单元参数选取"></a>流量单元参数选取</h3><p><img src="/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_experiment_5.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="流量单元参数选取"><a href="#流量单元参数选取" class="headerlink" title="流量单元参数选取"></a>流量单元参数选取</h3><p><img src="/img/MH-NET/RETCW_experiment_5.png" srcset="/img/loading.gif" lazyload></p>
 <p>在单一比特量流量单元中，8比特（即1字节）仍然能保持较高的准确率；其他单一比特量流量单元下降的原因可能是破坏了1字节的完整性，而较短的流量单元可能会导致流量图规模增大，降低效率。</p>
-<p><img src="/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_experiment_6.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/MH-NET/RETCW_experiment_6.png" srcset="/img/loading.gif" lazyload></p>
 <p>组合不同的流量单元可以一定程度上提升模型性能，实验的默认设置也是选择4比特和8比特的流量单元组合。</p>
 
                 
