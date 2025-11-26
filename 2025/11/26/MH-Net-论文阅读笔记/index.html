@@ -1,0 +1,786 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/peach.png">
+  <link rel="icon" href="/img/peach.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mildempeach">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="MH-Net: 论文阅读笔记基本信息论文原文：Revolutionizing Encrypted Traffic Classification with MH-Net: A Multi-View Heterogeneous Graph Model标题翻译：MH-Net：一种用于加密流量分类的多视角异构图模型所属会议&#x2F;期刊：AAAI 2025一句话总结：一种利用多视角异构流量图进行加密流量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MH-Net: 论文阅读笔记">
+<meta property="og:url" content="http://example.com/2025/11/26/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="MH-Net: 论文阅读笔记基本信息论文原文：Revolutionizing Encrypted Traffic Classification with MH-Net: A Multi-View Heterogeneous Graph Model标题翻译：MH-Net：一种用于加密流量分类的多视角异构图模型所属会议&#x2F;期刊：AAAI 2025一句话总结：一种利用多视角异构流量图进行加密流量">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/RETCW_design_1.png">
+<meta property="og:image" content="http://example.com/RETCW_design_2.png">
+<meta property="og:image" content="http://example.com/RETCW_experiment_1.png">
+<meta property="og:image" content="http://example.com/RETCW_experiment_2.png">
+<meta property="og:image" content="http://example.com/RETCW_experiment_3.png">
+<meta property="og:image" content="http://example.com/RETCW_experiment_4.png">
+<meta property="og:image" content="http://example.com/RETCW_experiment_5.png">
+<meta property="og:image" content="http://example.com/RETCW_experiment_6.png">
+<meta property="article:published_time" content="2025-11-26T03:39:08.000Z">
+<meta property="article:modified_time" content="2025-11-26T04:04:51.897Z">
+<meta property="article:author" content="mildempeach">
+<meta property="article:tag" content="GNN">
+<meta property="article:tag" content="encrypted traffic">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/RETCW_design_1.png">
+  
+  
+  
+  <title>MH-Net: 论文阅读笔记 - </title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>mildempeach</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="MH-Net: 论文阅读笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        mildempeach
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-11-26 11:39" pubdate>
+          November 26, 2025 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.5k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          46 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">MH-Net: 论文阅读笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="MH-Net-论文阅读笔记"><a href="#MH-Net-论文阅读笔记" class="headerlink" title="MH-Net: 论文阅读笔记"></a>MH-Net: 论文阅读笔记</h1><h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>论文原文：<a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1609/aaai.v39i1.32091">Revolutionizing Encrypted Traffic Classification with MH-Net: A Multi-View Heterogeneous Graph Model</a><br>标题翻译：MH-Net：一种用于加密流量分类的多视角异构图模型<br>所属会议&#x2F;期刊：AAAI 2025<br>一句话总结：一种利用<strong>多视角异构流量图</strong>进行加密流量分类的模型</p>
+<h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><ul>
+<li><strong>现有的将深度学习方法用于加密流量分类的问题</strong></li>
+</ul>
+<p>现有的基于深度学习的分类方法，在处理流量的粒度上有些僵化，主要体现为：</p>
+<ol>
+<li><strong>处理单元大小僵化</strong>。现有方法通常将一个字节作为最小的处理单元，其实字节可以进一步细分为多个比特。</li>
+<li><strong>忽视字节间多种关联类型</strong>。现有方法将字节序列中不同位置字节的关联混为一谈，无法利用字节在字节序列中的位置差异而带来的信息。</li>
+</ol>
+<ul>
+<li><strong>核心贡献</strong></li>
+</ul>
+<p>提出了MH-Net，一种<strong>多视角异构流量图模型</strong>：</p>
+<ol>
+<li>通过将字节拆分成<strong>不同比特数目的流量单元</strong>，构建<strong>多视角</strong>图，从而丰富可提取的信息。</li>
+<li>通过引入基于位置联系的<strong>三种类型流量单元对（头-头、头-载荷、载荷-载荷）</strong>，构建<strong>异构</strong>图，并采用异构图神经网络提取特征。</li>
+<li>进一步地，采用<strong>多任务对比学习</strong>增强流量单元表示的鲁棒性。</li>
+</ol>
+<h2 id="方法设计"><a href="#方法设计" class="headerlink" title="方法设计"></a>方法设计</h2><p><img src="/RETCW_design_1.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="阶段一：构建多视角流量图"><a href="#阶段一：构建多视角流量图" class="headerlink" title="阶段一：构建多视角流量图"></a>阶段一：构建多视角流量图</h3><ul>
+<li><strong>目的</strong></li>
+</ul>
+<p>对一个 <strong>数据包（packet）</strong> 对应的比特序列，按照不同的流量单元粒度（如4 bits&#x2F;8 bits）进行划分。在不同比特数量的流量单元能够从不同角度“解释”传输的数据，因此能够挖掘出潜在的、更具判别性的特征。</p>
+<ul>
+<li><strong>方法</strong></li>
+</ul>
+<ol>
+<li>将比特序列按照不同比特数，如 $N_1$ 、 $N_2$ ，作为<strong>流量单元</strong>，得到两条流量单元序列 $\vec{U_{N_1}}$ 和 $\vec{U_{N_2}}$。</li>
+<li>使用<code>PMI</code>方法量化每一条流量单元序列中，<strong>不同流量单元之间的关联性</strong>大小。</li>
+<li>根据第二步的计算结果，将<strong>关联性高的流量单元对</strong>对应的流量单元结点在图中用边相连。从而得到两张由不同流量单元为结点组成的<strong>多视图流量图</strong>  $\mathcal{G}<em>{N_1}$ 和 $\mathcal{G}</em>{N_2}$ 。（架构图中未画出这两张图）</li>
+</ol>
+<ul>
+<li><strong>PMI方法</strong></li>
+</ul>
+<p>对于流量单元序列 $\vec{U_{N}}$ 来说，第 $i$ 个流量单元序列 $U_{N}^{i}$ 本质就是 $N$ 个比特位，对应一个十进制数。</p>
+<p>使用固定大小的滑动窗口扫描流量单元序列，每一个流量单元对应一个数值，统计两个流量单元（即两种数值）在滑动窗口中共同出现的次数，数学表述：</p>
+<p>两者同时出现的滑动窗口占总滑动窗口数的占比： $ p(U_N^i, U_N^j) &#x3D; \frac{#W(U_N^i, U_N^j)}{#W} $</p>
+<p>某个流量单元出现的滑动窗口占总滑动窗口数的占比： $p(U_N^i) &#x3D; \frac{#W(U_N^i)}{#W}$</p>
+<p>PMI值计算： $PMI(U_N^i, U_N^j) &#x3D; \log{\frac{p(U_N^i, U_N^j)}{p(U_N^i)p(U_N^j)}}$ </p>
+<p>当PMI值大于0时，被认为两个流量单元具有关联。</p>
+<h3 id="阶段二：基于多视角流量图构建其异构图"><a href="#阶段二：基于多视角流量图构建其异构图" class="headerlink" title="阶段二：基于多视角流量图构建其异构图"></a>阶段二：基于多视角流量图构建其异构图</h3><ul>
+<li><strong>目的</strong></li>
+</ul>
+<p>在同一个数据包、不同流量单元构成的两张多视角图 $\mathcal{G}<em>{N_1}$ 和 $\mathcal{G}</em>{N_2}$ 的基础上，对<strong>每一张多视角图构建其异构图</strong>。这样做是为了能够利用数据包不同位置流量单元之间的联系。</p>
+<ul>
+<li><strong>做法</strong></li>
+</ul>
+<p>流量单元之间的位置关系，具体来说可分为以下三类：</p>
+<ol>
+<li><code>h-h</code>：两个都位于头部的流量单元。</li>
+<li><code>p-p</code>：两个都位于载荷部分的流量单元。</li>
+<li><code>h-p</code>：一个位于头部、一个位于载荷部分的流量单元。</li>
+</ol>
+<p>仍然采用阶段一中的<code>PMI</code>方法，<strong>扫描三种序列</strong>（头部流量单元序列、载荷部分流量单元序列、完整流量单元序列），从而在图中加入对应类型的边，最终得到图 $\mathcal{G}<em>{N_1}^{H}$ 和图 $\mathcal{G}</em>{N_2}^{H}$ 。</p>
+<blockquote>
+<p>这里的完整流量单元序列，实际上就是阶段一的步骤；所以在实际操作中，阶段一和阶段二可以合成一步，简单来说就是根据PMI方法扫描三条序列，构建图。</p>
+</blockquote>
+<h3 id="阶段三：异构图流量编码器"><a href="#阶段三：异构图流量编码器" class="headerlink" title="阶段三：异构图流量编码器"></a>阶段三：异构图流量编码器</h3><ul>
+<li><strong>目的</strong></li>
+</ul>
+<p>将得到的图 $\mathcal{G}<em>{N_1}^{H}$ 和图 $\mathcal{G}</em>{N_2}^{H}$ 喂给 <strong>异构图神经网络（HGNN）</strong> ，后者对这些图进行编码，获得可区分的图表示（一个Embedding）。</p>
+<ul>
+<li><strong>异构图神经网络（HGNN）</strong></li>
+</ul>
+<p>异构图神经网络（HGNN）以<code>GraphSAGE</code>作为基本骨干，不同类型的边权重彼此独立不共享。</p>
+<p>每一层的前向传播分为两个步骤：<strong>采样</strong>、<strong>聚合</strong>，数学表示如下：</p>
+<p>在神经网络的第 $l$ 层，在图 $\mathcal{G}_{N}^{H}$ 中的某个节点 <code>v</code> 进行如下计算：</p>
+<ol>
+<li>邻居节点采样：从邻居节点收集消息，生成消息向量。</li>
+</ol>
+<p>$$<br>m_v^{(l)} &#x3D; MSG^{(l)}({h_u^{l - 1}, u \in N(v)}; \theta_{h,h}^{l;m},\theta_{p,p}^{l;m},\theta_{h,p}^{l;m})<br>$$</p>
+<p>其中，<code>MSG</code>表示采样函数， $h_v^{l}$ 表示节点 $v$ 在 $l$ 层对应的嵌入向量， $\theta$ 为不同类型边的参数。</p>
+<ol start="2">
+<li>消息聚合计算：将采样得到的邻居节点信息和自身信息聚合，作为下一层输入。</li>
+</ol>
+<p>$$<br>h_v^{(l)} &#x3D;  AGG^{(l)}(h_v^{(l - 1)}, m_v^{l};\theta_{h,h}^{l;a},\theta_{p,p}^{l;a},\theta_{h,p}^{l;a})<br>$$</p>
+<p>在多层采样-聚合后，最终得到图中的每个节点对应的嵌入向量 $h$，然后逐节点做平均，作为图对应的嵌入向量 $p_N$ ，即<strong>包级别特征表示</strong>。</p>
+<p>$$<br>p_{N1} &#x3D; HGNN(\mathcal{G}_{N1}^{\mathcal{H}})<br>$$</p>
+<p>$$<br>p_{N2} &#x3D; HGNN(\mathcal{G}_{N2}^{\mathcal{H}})<br>$$</p>
+<p>将一个流中的多个<strong>包级别特征表示</strong>输入到 <strong>循环神经网络（RNN）</strong> 中，可以得到相应的对于同一个流的两种<strong>流级特征表示</strong>，其中 $L$ 为流中的包数目。</p>
+<p>$$<br>f_{N1} &#x3D; RNN(P_{N1}^1,\dots,P_{N1}^{L})<br>$$</p>
+<p>$$<br>f_{N2} &#x3D; RNN(P_{N2}^1,\dots,P_{N2}^{L})<br>$$</p>
+<ul>
+<li><strong>模型训练与损失函数</strong></li>
+</ul>
+<p>在MH-Net模型进行训练时，其采用的是多任务联合训练的方式，即同时训练包级分类和流级分类，用于进一步优化分类结果。同时，在包级和流级特征生成过程中，采用对比学习。因此，整个系统的损失函数包括四大部分：包级分类损失、流级分类损失、包级对比学习损失、流级对比学习损失。</p>
+<p>根据对比学习的损失的反向传播，就会优化模型的能力，从而使得相同label的包&#x2F;流输出得到的嵌入向量更接近。</p>
+<p><img src="/RETCW_design_2.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>1. 分类损失计算</strong></p>
+<p>在得到包&#x2F;流级特征后，将不同视角的特征值通过<strong>CONCAT</strong>连接，通过MLP(作者未开源的一个多层流量分类器)预测流量种类，并将其与实际标签做比对，计算得到分类器的损失函数。</p>
+<p><strong>包级分类损失：</strong></p>
+<p>$$<br>p &#x3D; CONCAT(p_{N1}, p_{N2})<br>$$</p>
+<p>$$<br>\mathcal{L}_{PCLS} &#x3D; CE(MLP(p), y^p)<br>$$</p>
+<p><strong>流级分类损失：</strong></p>
+<p>$$<br>f &#x3D; CONCAT(f_{N1}, f_{N2})<br>$$</p>
+<p>$$<br>\mathcal{L}_{FCLS} &#x3D; CE(MLP(f), y^f)<br>$$</p>
+<p><strong>2. 对比学习损失计算</strong></p>
+<p><strong>核心损失函数：</strong></p>
+<p>$$<br>\mathcal{L}<em>{SCL}(z) &#x3D; \sum</em>{i \in I}\frac{-1}{| M(i)|} \sum_{m \in M(i)} log \frac{exp(z_i \cdot z_m &#x2F; \tau)}{ \sum_{k \in K(i)}exp(z_i \cdot z_k &#x2F; \tau)}<br>$$</p>
+<p>这里的 $z$ 指的是来自同一源的两组数据增强的样本组成的嵌入向量集合。</p>
+<p>其核心目的在于计算损失后，调节模型的参数，使得正样本之间距离更近，负样本之间距离更远。</p>
+<p><strong>包级对比学习损失：</strong></p>
+<p>为计算包级别对比学习的损失，需要首先对输入的图进行<strong>图增强</strong>，将增强后的图也经过<code>HGNN</code>，从而计算对比学习损失。</p>
+<p>图增强采用两种方式：1. 随机游走：随机选择一个起始节点出发，生成一个节点序列。提取序列中所有不重复的节点，然后从原图中抽取出由这些节点构成的子图。2. 特征翻转：保持图的结构（节点和边）不变，但是将节点对应的初始字节ID进行了顺序上的翻转。</p>
+<p>对于每一张异构图 $\mathcal{G}<em>{N}^{\mathcal{H}}$ 生成两张增强图 $\mathcal{G}</em>{N, s}^{\mathcal{H}}$ 和 $\mathcal{G}_{N, f}^{\mathcal{H}}$ 。</p>
+<p>包级对比学习损失计算公式为：</p>
+<p>$$<br>\mathcal{L}<em>{PCL} &#x3D; \sum_i^{{1,2}}(\mathcal{L}</em>{SCL}(p_{Ni}, HGNN(\mathcal{G}^{\mathcal{H}}<em>{Ni, s})) + \mathcal{L}</em>{SCL}(p_{Ni}, HGNN(\mathcal{G}^{\mathcal{H}}_{Ni, f})))<br>$$</p>
+<p>总结：一次处理若干个包的嵌入向量（embedding），每个包都包含两个嵌入向量（一个来自原本的图、一个来自增强图）。把所有这些embedding视为总集合，其中每个包的label即为一个类别（增强图的label与原label相同），进行损失计算。</p>
+<p><strong>流级对比学习损失：</strong></p>
+<p>为计算流级别对比学习的损失，需要获得<strong>增强流</strong>作为对照。实现的方式是在进入RNN时，丢弃部分包，得到一条增强流的特征。</p>
+<p>$$<br>\mathcal{L}<em>{FCL} &#x3D; \sum_i^{1,2} \mathcal{L}</em>{SCL}(f_{Ni},RNN(p_{Ni}^1 \odot \rho_1,…,p_{Ni}^{Li} \odot \rho_{Li}))<br>$$</p>
+<p>总结：一次处理若干条流的嵌入向量，每条流对应两个嵌入向量（原流、增强流），根据流的label划分为不同类型的样本。对于某个具体的嵌入向量来说，与自身对应的流的label相同的嵌入向量为正样本，否则为负样本。</p>
+<p><strong>3. 总体损失</strong></p>
+<p>根据分类损失和对比损失，可以计算出整个模型的整体损失：</p>
+<p>$$<br>\mathcal{L} &#x3D; \mathcal{L}<em>{FCLS} + \mathcal{L}</em>{PCLS} + \alpha \mathcal{L}<em>{PCL} + \beta \mathcal{L}</em>{FCL}<br>$$</p>
+<p>其中 $\alpha, \beta \in [0, 1]$ 是用于控制包级别和流级别对比任务的贡献度的参数。</p>
+<h2 id="实验分析"><a href="#实验分析" class="headerlink" title="实验分析"></a>实验分析</h2><h3 id="实验设置"><a href="#实验设置" class="headerlink" title="实验设置"></a>实验设置</h3><ul>
+<li><strong>数据集</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>数据集名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CIC-IoT</td>
+</tr>
+<tr>
+<td>ISCX-VPN</td>
+</tr>
+<tr>
+<td>ISCX-nonVPN</td>
+</tr>
+<tr>
+<td>ISCX-Tor</td>
+</tr>
+<tr>
+<td>ISCX-nonTor</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>采用的全都是<code>unb</code>采集的公共数据集。</p>
+</blockquote>
+<p>首先训练并测试流级别流量分类，采取分层抽样的方式，按照9：1划分训练集和测试集。</p>
+<p>随后将流的标签扩展至每个数据包的标签，用相应的流的训练集和测试集用来进行包级别流量分类的训练及测试。</p>
+<ul>
+<li><strong>基线模型</strong></li>
+</ul>
+<p>将包级别分类结果和流级别分类结果分别与相应的baseline进行比较，具体包含如下：</p>
+<ol>
+<li><p>包级别基线模型：Securitas,2DCNN,3DCNN,DeepPacket,BLJAN,ESBNN</p>
+</li>
+<li><p>流级别基线模型：AppScanner,K-FP,CUMUL,ETC-PS,FS-Net,DF,ET-BERT,GraphDApp,TFE-GNN,YaTC</p>
+</li>
+</ol>
+<ul>
+<li><strong>评价指标</strong></li>
+</ul>
+<ol>
+<li>总体准确率 AC</li>
+<li>宏F1值 Macro F1-score</li>
+</ol>
+<blockquote>
+<p>宏平均值指的是对每一类别分别计算精确率和召回率，然后取算术平均，相当于不管每一类别的样本数量差异，对于最终的宏平均值的贡献度是一样的。适合类别数量相近但样本数差异大的场景，用来强调少数类别表现。</p>
+</blockquote>
+<h3 id="流级别分类任务实验"><a href="#流级别分类任务实验" class="headerlink" title="流级别分类任务实验"></a>流级别分类任务实验</h3><p><img src="/RETCW_experiment_1.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li><p>在五个数据集上的平均表现，MH-Net排名首位，随后是TFE-GNN（作者的另一篇论文）和YaTC；</p>
+</li>
+<li><p>MH-Net的表现远远优于传统的基于统计特征的方法（表格上半部分），相对于基于深度学习方法（表格下半部分），MH-Net仍有明显优势。</p>
+</li>
+<li><p>TFE-GEN和YaTC也是利用原始字节进行特征表示学习，但仍落后于MH-Net；说明它们对于字节组合利用的不够充分，且忽略了细粒度的字节关联。</p>
+</li>
+<li><p>在ISCX-nonVPN数据集上，ET-BERT模型的结果十分可观，这是由于其在大规模数据集上利用了大量的参数和预训练，计算负载巨大。</p>
+</li>
+</ol>
+<h3 id="包级别分类任务实验"><a href="#包级别分类任务实验" class="headerlink" title="包级别分类任务实验"></a>包级别分类任务实验</h3><p><img src="/RETCW_experiment_2.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li><p>在五个数据集上的平均表现，MH-Net仍然排名首位，随后是EBSNN-LSTM和EBSNN-GRU。</p>
+</li>
+<li><p>EBSNN在很多数据集上的表现优于MH-Net，但整体仍然和MH-Net有较大差距，说明其能力并不稳定。</p>
+</li>
+</ol>
+<h3 id="消融实验"><a href="#消融实验" class="headerlink" title="消融实验"></a>消融实验</h3><p><img src="/RETCW_experiment_3.png" srcset="/img/loading.gif" lazyload></p>
+<p>从消融实验可以看出，8-bit的流量单元对于模型分辨流量的贡献度最高，且使用异构图（Hetero.）获取不同位置流量单元间关系的手段是有效的。</p>
+<h3 id="参数敏感性分析"><a href="#参数敏感性分析" class="headerlink" title="参数敏感性分析"></a>参数敏感性分析</h3><p><img src="/RETCW_experiment_4.png" srcset="/img/loading.gif" lazyload></p>
+<p>这里的 $\alpha$ 和 $\beta$ 是用来调节整体损失函数中包特征和流特征的对比学习损失占比，可以看出分别取到1.0和0.5的时候，整体效果最好，这也是实验的默认参数设置。</p>
+<h3 id="流量单元参数选取"><a href="#流量单元参数选取" class="headerlink" title="流量单元参数选取"></a>流量单元参数选取</h3><p><img src="/RETCW_experiment_5.png" srcset="/img/loading.gif" lazyload></p>
+<p>在单一比特量流量单元中，8比特（即1字节）仍然能保持较高的准确率；其他单一比特量流量单元下降的原因可能是破坏了1字节的完整性，而较短的流量单元可能会导致流量图规模增大，降低效率。</p>
+<p><img src="/RETCW_experiment_6.png" srcset="/img/loading.gif" lazyload></p>
+<p>组合不同的流量单元可以一定程度上提升模型性能，实验的默认设置也是选择4比特和8比特的流量单元组合。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/encrypted-traffic/" class="print-no-link">#encrypted traffic</a>
+      
+        <a href="/tags/GNN/" class="print-no-link">#GNN</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
