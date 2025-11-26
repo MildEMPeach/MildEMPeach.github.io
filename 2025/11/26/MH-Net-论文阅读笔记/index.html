@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://example.com/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_experiment_5.png">
 <meta property="og:image" content="http://example.com/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/RETCW_experiment_6.png">
 <meta property="article:published_time" content="2025-11-26T03:39:08.000Z">
-<meta property="article:modified_time" content="2025-11-26T05:00:38.076Z">
+<meta property="article:modified_time" content="2025-11-26T05:07:31.728Z">
 <meta property="article:author" content="mildempeach">
 <meta property="article:tag" content="加密流量分析">
 <meta property="article:tag" content="图神经网络">
@@ -308,8 +308,8 @@
 </ul>
 <p>对于流量单元序列 $\vec{U_{N}}$ 来说，第 $i$ 个流量单元序列 $U_{N}^{i}$ 本质就是 $N$ 个比特位，对应一个十进制数。</p>
 <p>使用固定大小的滑动窗口扫描流量单元序列，每一个流量单元对应一个数值，统计两个流量单元（即两种数值）在滑动窗口中共同出现的次数，数学表述：</p>
-<p>两者同时出现的滑动窗口占总滑动窗口数的占比： $ p(U_N^i, U_N^j) &#x3D; \frac{#W(U_N^i, U_N^j)}{#W} $</p>
-<p>某个流量单元出现的滑动窗口占总滑动窗口数的占比： $p(U_N^i) &#x3D; \frac{#W(U_N^i)}{#W}$</p>
+<p>两者同时出现的滑动窗口占总滑动窗口数的占比： $ p(U_N^i, U_N^j) &#x3D; \frac{W(U_N^i, U_N^j)}{W} $</p>
+<p>某个流量单元出现的滑动窗口占总滑动窗口数的占比： $p(U_N^i) &#x3D; \frac{W(U_N^i)}{W}$</p>
 <p>PMI值计算： $PMI(U_N^i, U_N^j) &#x3D; \log{\frac{p(U_N^i, U_N^j)}{p(U_N^i)p(U_N^j)}}$ </p>
 <p>当PMI值大于0时，被认为两个流量单元具有关联。</p>
 <h3 id="阶段二：基于多视角流量图构建其异构图"><a href="#阶段二：基于多视角流量图构建其异构图" class="headerlink" title="阶段二：基于多视角流量图构建其异构图"></a>阶段二：基于多视角流量图构建其异构图</h3><ul>
