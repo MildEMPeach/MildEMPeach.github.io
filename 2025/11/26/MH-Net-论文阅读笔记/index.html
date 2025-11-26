@@ -19,12 +19,12 @@
   <meta name="author" content="mildempeach">
   <meta name="keywords" content="">
   
-    <meta name="description" content="MH-Net: 论文阅读笔记基本信息论文原文：Revolutionizing Encrypted Traffic Classification with MH-Net: A Multi-View Heterogeneous Graph Model标题翻译：MH-Net：一种用于加密流量分类的多视角异构图模型所属会议&#x2F;期刊：AAAI 2025一句话总结：一种利用多视角异构流量图进行加密流量">
+    <meta name="description" content="MH-Net: 论文阅读笔记基本信息论文原文：Revolutionizing Encrypted Traffic Classification with MH-Net: A Multi-View Heterogeneous Graph Model 标题翻译：MH-Net：一种用于加密流量分类的多视角异构图模型 所属会议&#x2F;期刊：AAAI 2025 一句话总结：一种利用多视角异构流量图进行加">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MH-Net: 论文阅读笔记">
 <meta property="og:url" content="http://example.com/2025/11/26/MH-Net-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="MH-Net: 论文阅读笔记基本信息论文原文：Revolutionizing Encrypted Traffic Classification with MH-Net: A Multi-View Heterogeneous Graph Model标题翻译：MH-Net：一种用于加密流量分类的多视角异构图模型所属会议&#x2F;期刊：AAAI 2025一句话总结：一种利用多视角异构流量图进行加密流量">
+<meta property="og:description" content="MH-Net: 论文阅读笔记基本信息论文原文：Revolutionizing Encrypted Traffic Classification with MH-Net: A Multi-View Heterogeneous Graph Model 标题翻译：MH-Net：一种用于加密流量分类的多视角异构图模型 所属会议&#x2F;期刊：AAAI 2025 一句话总结：一种利用多视角异构流量图进行加">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/MH-NET/RETCW_design_1.png">
 <meta property="og:image" content="http://example.com/img/MH-NET/RETCW_design_2.png">
@@ -272,7 +272,10 @@
             
               <div class="markdown-body">
                 
-                <h1 id="MH-Net-论文阅读笔记"><a href="#MH-Net-论文阅读笔记" class="headerlink" title="MH-Net: 论文阅读笔记"></a>MH-Net: 论文阅读笔记</h1><h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>论文原文：<a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1609/aaai.v39i1.32091">Revolutionizing Encrypted Traffic Classification with MH-Net: A Multi-View Heterogeneous Graph Model</a><br>标题翻译：MH-Net：一种用于加密流量分类的多视角异构图模型<br>所属会议&#x2F;期刊：AAAI 2025<br>一句话总结：一种利用<strong>多视角异构流量图</strong>进行加密流量分类的模型</p>
+                <h1 id="MH-Net-论文阅读笔记"><a href="#MH-Net-论文阅读笔记" class="headerlink" title="MH-Net: 论文阅读笔记"></a>MH-Net: 论文阅读笔记</h1><h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>论文原文：<a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1609/aaai.v39i1.32091">Revolutionizing Encrypted Traffic Classification with MH-Net: A Multi-View Heterogeneous Graph Model</a>
+标题翻译：MH-Net：一种用于加密流量分类的多视角异构图模型
+所属会议&#x2F;期刊：AAAI 2025
+一句话总结：一种利用<strong>多视角异构流量图</strong>进行加密流量分类的模型</p>
 <h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><ul>
 <li><strong>现有的将深度学习方法用于加密流量分类的问题</strong></li>
 </ul>
@@ -348,18 +351,30 @@
 <ol>
 <li>邻居节点采样：从邻居节点收集消息，生成消息向量。</li>
 </ol>
-<p>$$<br>m_v^{(l)} &#x3D; MSG^{(l)}({h_u^{l - 1}, u \in N(v)}; \theta_{h,h}^{l;m},\theta_{p,p}^{l;m},\theta_{h,p}^{l;m})<br>$$</p>
+<p>$$
+m_v^{(l)} &#x3D; MSG^{(l)}({h_u^{l - 1}, u \in N(v)}; \theta_{h,h}^{l;m},\theta_{p,p}^{l;m},\theta_{h,p}^{l;m})
+$$</p>
 <p>其中，<code>MSG</code>表示采样函数， $h_v^{l}$ 表示节点 $v$ 在 $l$ 层对应的嵌入向量， $\theta$ 为不同类型边的参数。</p>
 <ol start="2">
 <li>消息聚合计算：将采样得到的邻居节点信息和自身信息聚合，作为下一层输入。</li>
 </ol>
-<p>$$<br>h_v^{(l)} &#x3D;  AGG^{(l)}(h_v^{(l - 1)}, m_v^{l};\theta_{h,h}^{l;a},\theta_{p,p}^{l;a},\theta_{h,p}^{l;a})<br>$$</p>
+<p>$$
+h_v^{(l)} &#x3D;  AGG^{(l)}(h_v^{(l - 1)}, m_v^{l};\theta_{h,h}^{l;a},\theta_{p,p}^{l;a},\theta_{h,p}^{l;a})
+$$</p>
 <p>在多层采样-聚合后，最终得到图中的每个节点对应的嵌入向量 $h$，然后逐节点做平均，作为图对应的嵌入向量 $p_N$ ，即<strong>包级别特征表示</strong>。</p>
-<p>$$<br>p_{N1} &#x3D; HGNN(\mathcal{G}_{N1}^{\mathcal{H}})<br>$$</p>
-<p>$$<br>p_{N2} &#x3D; HGNN(\mathcal{G}_{N2}^{\mathcal{H}})<br>$$</p>
+<p>$$
+p_{N1} &#x3D; HGNN(\mathcal{G}_{N1}^{\mathcal{H}})
+$$</p>
+<p>$$
+p_{N2} &#x3D; HGNN(\mathcal{G}_{N2}^{\mathcal{H}})
+$$</p>
 <p>将一个流中的多个<strong>包级别特征表示</strong>输入到 <strong>循环神经网络（RNN）</strong> 中，可以得到相应的对于同一个流的两种<strong>流级特征表示</strong>，其中 $L$ 为流中的包数目。</p>
-<p>$$<br>f_{N1} &#x3D; RNN(P_{N1}^1,\dots,P_{N1}^{L})<br>$$</p>
-<p>$$<br>f_{N2} &#x3D; RNN(P_{N2}^1,\dots,P_{N2}^{L})<br>$$</p>
+<p>$$
+f_{N1} &#x3D; RNN(P_{N1}^1,\dots,P_{N1}^{L})
+$$</p>
+<p>$$
+f_{N2} &#x3D; RNN(P_{N2}^1,\dots,P_{N2}^{L})
+$$</p>
 <ul>
 <li><strong>模型训练与损失函数</strong></li>
 </ul>
@@ -369,14 +384,24 @@
 <p><strong>1. 分类损失计算</strong></p>
 <p>在得到包&#x2F;流级特征后，将不同视角的特征值通过<strong>CONCAT</strong>连接，通过MLP(作者未开源的一个多层流量分类器)预测流量种类，并将其与实际标签做比对，计算得到分类器的损失函数。</p>
 <p><strong>包级分类损失：</strong></p>
-<p>$$<br>p &#x3D; CONCAT(p_{N1}, p_{N2})<br>$$</p>
-<p>$$<br>\mathcal{L}_{PCLS} &#x3D; CE(MLP(p), y^p)<br>$$</p>
+<p>$$
+p &#x3D; CONCAT(p_{N1}, p_{N2})
+$$</p>
+<p>$$
+\mathcal{L}_{PCLS} &#x3D; CE(MLP(p), y^p)
+$$</p>
 <p><strong>流级分类损失：</strong></p>
-<p>$$<br>f &#x3D; CONCAT(f_{N1}, f_{N2})<br>$$</p>
-<p>$$<br>\mathcal{L}_{FCLS} &#x3D; CE(MLP(f), y^f)<br>$$</p>
+<p>$$
+f &#x3D; CONCAT(f_{N1}, f_{N2})
+$$</p>
+<p>$$
+\mathcal{L}_{FCLS} &#x3D; CE(MLP(f), y^f)
+$$</p>
 <p><strong>2. 对比学习损失计算</strong></p>
 <p><strong>核心损失函数：</strong></p>
-<p>$$<br>\mathcal{L}<em>{SCL}(z) &#x3D; \sum</em>{i \in I}\frac{-1}{| M(i)|} \sum_{m \in M(i)} log \frac{exp(z_i \cdot z_m &#x2F; \tau)}{ \sum_{k \in K(i)}exp(z_i \cdot z_k &#x2F; \tau)}<br>$$</p>
+<p>$$
+\mathcal{L}<em>{SCL}(z) &#x3D; \sum</em>{i \in I}\frac{-1}{| M(i)|} \sum_{m \in M(i)} log \frac{exp(z_i \cdot z_m &#x2F; \tau)}{ \sum_{k \in K(i)}exp(z_i \cdot z_k &#x2F; \tau)}
+$$</p>
 <p>这里的 $z$ 指的是来自同一源的两组数据增强的样本组成的嵌入向量集合。</p>
 <p>其核心目的在于计算损失后，调节模型的参数，使得正样本之间距离更近，负样本之间距离更远。</p>
 <p><strong>包级对比学习损失：</strong></p>
@@ -384,15 +409,21 @@
 <p>图增强采用两种方式：1. 随机游走：随机选择一个起始节点出发，生成一个节点序列。提取序列中所有不重复的节点，然后从原图中抽取出由这些节点构成的子图。2. 特征翻转：保持图的结构（节点和边）不变，但是将节点对应的初始字节ID进行了顺序上的翻转。</p>
 <p>对于每一张异构图 $\mathcal{G}<em>{N}^{\mathcal{H}}$ 生成两张增强图 $\mathcal{G}</em>{N, s}^{\mathcal{H}}$ 和 $\mathcal{G}_{N, f}^{\mathcal{H}}$ 。</p>
 <p>包级对比学习损失计算公式为：</p>
-<p>$$<br>\mathcal{L}<em>{PCL} &#x3D; \sum_i^{{1,2}}(\mathcal{L}</em>{SCL}(p_{Ni}, HGNN(\mathcal{G}^{\mathcal{H}}<em>{Ni, s})) + \mathcal{L}</em>{SCL}(p_{Ni}, HGNN(\mathcal{G}^{\mathcal{H}}_{Ni, f})))<br>$$</p>
+<p>$$
+\mathcal{L}<em>{PCL} &#x3D; \sum_i^{{1,2}}(\mathcal{L}</em>{SCL}(p_{Ni}, HGNN(\mathcal{G}^{\mathcal{H}}<em>{Ni, s})) + \mathcal{L}</em>{SCL}(p_{Ni}, HGNN(\mathcal{G}^{\mathcal{H}}_{Ni, f})))
+$$</p>
 <p>总结：一次处理若干个包的嵌入向量（embedding），每个包都包含两个嵌入向量（一个来自原本的图、一个来自增强图）。把所有这些embedding视为总集合，其中每个包的label即为一个类别（增强图的label与原label相同），进行损失计算。</p>
 <p><strong>流级对比学习损失：</strong></p>
 <p>为计算流级别对比学习的损失，需要获得<strong>增强流</strong>作为对照。实现的方式是在进入RNN时，丢弃部分包，得到一条增强流的特征。</p>
-<p>$$<br>\mathcal{L}<em>{FCL} &#x3D; \sum_i^{1,2} \mathcal{L}</em>{SCL}(f_{Ni},RNN(p_{Ni}^1 \odot \rho_1,…,p_{Ni}^{Li} \odot \rho_{Li}))<br>$$</p>
+<p>$$
+\mathcal{L}<em>{FCL} &#x3D; \sum_i^{1,2} \mathcal{L}</em>{SCL}(f_{Ni},RNN(p_{Ni}^1 \odot \rho_1,...,p_{Ni}^{Li} \odot \rho_{Li}))
+$$</p>
 <p>总结：一次处理若干条流的嵌入向量，每条流对应两个嵌入向量（原流、增强流），根据流的label划分为不同类型的样本。对于某个具体的嵌入向量来说，与自身对应的流的label相同的嵌入向量为正样本，否则为负样本。</p>
 <p><strong>3. 总体损失</strong></p>
 <p>根据分类损失和对比损失，可以计算出整个模型的整体损失：</p>
-<p>$$<br>\mathcal{L} &#x3D; \mathcal{L}<em>{FCLS} + \mathcal{L}</em>{PCLS} + \alpha \mathcal{L}<em>{PCL} + \beta \mathcal{L}</em>{FCL}<br>$$</p>
+<p>$$
+\mathcal{L} &#x3D; \mathcal{L}<em>{FCLS} + \mathcal{L}</em>{PCLS} + \alpha \mathcal{L}<em>{PCL} + \beta \mathcal{L}</em>{FCL}
+$$</p>
 <p>其中 $\alpha, \beta \in [0, 1]$ 是用于控制包级别和流级别对比任务的贡献度的参数。</p>
 <h2 id="实验分析"><a href="#实验分析" class="headerlink" title="实验分析"></a>实验分析</h2><h3 id="实验设置"><a href="#实验设置" class="headerlink" title="实验设置"></a>实验设置</h3><ul>
 <li><strong>数据集</strong></li>
